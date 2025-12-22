@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+dist/
+bin/
+
+TODO.md
+
+.vscode/
