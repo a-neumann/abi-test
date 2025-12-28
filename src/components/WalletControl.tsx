@@ -129,15 +129,6 @@ export const WalletControl: React.FC<WalletControlProps> = ({ showBalance = true
                 <Tooltip title={address || ""} arrow>
                     <Button
                         onClick={handleClick}
-                        sx={{
-                            "textTransform": "none",
-                            "color": "text.primary",
-                            "bgcolor": "action.hover",
-                            "&:hover": { bgcolor: "action.selected" },
-                            "borderRadius": 2,
-                            "px": 1.5,
-                            "py": 0.75,
-                        }}
                         endIcon={<ChevronDown size={16} />}
                     >
                         {ensAvatar ? (
@@ -170,8 +161,10 @@ export const WalletControl: React.FC<WalletControlProps> = ({ showBalance = true
                 onClose={handleClose}
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 transformOrigin={{ vertical: "top", horizontal: "right" }}
-                PaperProps={{
-                    sx: { minWidth: 240, mt: 1 },
+                slotProps={{
+                    paper: {
+                        sx: { minWidth: 240, marginTop: 1 },
+                    },
                 }}
             >
                 {/* Address and avatar header */}

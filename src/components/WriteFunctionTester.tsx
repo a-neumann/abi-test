@@ -14,6 +14,7 @@ import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import type { Abi, AbiFunction, Log } from "viem";
 import { AbiInput } from "./AbiInput";
 import { FunctionSignature } from "./FunctionSignature";
+import { LogsView } from "./LogsView";
 import { parseInputValue, getFunctionId } from "../utils";
 import type { EnumMapping } from "../types";
 import AccordionContext from "../contexts/AccordionContext";
@@ -218,29 +219,7 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
                                 )}
                             </Typography>
                             {tx.logs && tx.logs.length > 0 && (
-                                <Box sx={{ mt: 1 }}>
-                                    <Typography variant="body2" fontWeight="bold">
-                                        Logs ({tx.logs.length}):
-                                    </Typography>
-                                    {tx.logs.map((log, idx) => (
-                                        <Box
-                                            key={idx}
-                                            component="pre"
-                                            sx={{
-                                                fontSize: "0.75rem",
-                                                bgcolor: "grey.100",
-                                                p: 1,
-                                                borderRadius: 1,
-                                                overflow: "auto",
-                                                mt: 0.5,
-                                            }}
-                                        >
-                                            {JSON.stringify(log, (_, v) =>
-                                                typeof v === "bigint" ? v.toString() : v, 2
-                                            )}
-                                        </Box>
-                                    ))}
-                                </Box>
+                                <LogsView logs={tx.logs} />
                             )}
                         </Alert>
                     ))}

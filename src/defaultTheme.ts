@@ -75,6 +75,13 @@ export const themeOptions: ThemeOptions = {
                 }),
             },
         },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: "none",
+                },
+            },
+        },
     },
 };
 

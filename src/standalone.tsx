@@ -31,11 +31,23 @@ if (!targetChain) {
 
 const rpcUrl = abiTestConfig.rpcUrl || targetChain.rpcUrls.default.http[0];
 
+const popularTestnets: Chain[] = [
+    chains.sepolia,
+    chains.holesky,
+    chains.polygonAmoy,
+    chains.arbitrumSepolia,
+    chains.optimismSepolia,
+    chains.baseSepolia,
+    chains.foundry,
+].filter(c => c.id !== targetChain.id);
+
+const allChains = [targetChain, ...popularTestnets] as const;
+
 export const wagmiConfig = createConfig({
-    chains: [targetChain],
-    transports: {
-        [targetChain.id]: http(rpcUrl),
-    },
+    chains: allChains,
+    transports: Object.fromEntries(
+        allChains.map(c => [c.id, c.id === targetChain.id ? http(rpcUrl) : http()])
+    ) as Record<number, ReturnType<typeof http>>,
 });
 
 const root = document.getElementById("root");
