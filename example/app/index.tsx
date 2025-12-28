@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { foundry } from "viem/chains";
 import { AbiTest, type ResolvedContractConfig } from "abi-test";
 import { mockUsdAbi, demoVaultAbi } from "./abis";
-import { MockUSDAddresses, DemoVaultAddresses } from "./addresses";
+import { mockUSDAddresses, demoVaultAddresses } from "./addresses";
 import { Home } from "./Home";
 
 const config = createConfig({
@@ -24,12 +24,12 @@ const contracts: ResolvedContractConfig[] = [
     {
         name: "MockUSD",
         abi: mockUsdAbi,
-        address: MockUSDAddresses,
+        address: mockUSDAddresses,
     },
     {
         name: "DemoVault",
         abi: demoVaultAbi,
-        address: DemoVaultAddresses,
+        address: demoVaultAddresses,
         enums: {
             VaultStatus: ["Active", "Paused", "Closed"],
         },
