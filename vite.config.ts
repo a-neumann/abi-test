@@ -16,7 +16,14 @@ const libBuildConfig = {
         fileName: "index",
     },
     rollupOptions: {
-        external: ["react", "react-dom", "react/jsx-runtime"],
+        external: [
+            "react",
+            "react-dom",
+            "react/jsx-runtime",
+            "wagmi",
+            "viem",
+            "@tanstack/react-query",
+        ],
         output: {
             globals: {
                 "react": "React",
