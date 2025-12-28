@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "build": "BUILD_MODE=lib vite build && BUILD_MODE=cli-app vite build && BUILD_MODE=cli vite build && chmod +x bin/cli.js",
-    "dev": "vite",
+    "dev": "vite --open /dev.html",
     "test": "tsc --noEmit",
     "lint": "eslint ."
   },

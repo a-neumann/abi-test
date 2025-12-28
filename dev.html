@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; connect-src *" />
+    <title>abi-test</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import config from "./abi-test.ts";
+      window.__ABI_TEST_CONFIG__ = config;
+      import("/src/standalone.tsx");
+    </script>
+  </body>
+</html>
