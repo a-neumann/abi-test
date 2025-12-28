@@ -3,10 +3,7 @@ import tseslint from "typescript-eslint";
 
 export default [
     {
-        ignores: [
-            "node_modules/**",
-            "dist/**",
-        ],
+        ignores: ["**", "!src/**", "!example/app/**"],
     },
     ...tseslint.configs.recommended,
     stylistic.configs.customize({
