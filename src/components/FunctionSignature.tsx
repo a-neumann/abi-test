@@ -11,9 +11,14 @@ interface FunctionSignatureProps {
 const getStructName = (internalType: string | undefined): string | null => {
 
     if (!internalType) return null;
-    const match = internalType.match(/^struct\s+(?:\w+\.)?(\w+)$/);
 
-    return match ? match[1] : null;
+    if (!internalType.startsWith("struct ")) return null;
+
+    // Extract the struct name (after the last dot, or after "struct " if no dot)
+    const afterStruct = internalType.slice(7); // Remove "struct "
+    const lastDotIndex = afterStruct.lastIndexOf(".");
+
+    return lastDotIndex >= 0 ? afterStruct.slice(lastDotIndex + 1) : afterStruct;
 };
 
 interface OutputTypeProps {
@@ -79,13 +84,30 @@ const MultipleOutputs: React.FC<MultipleOutputsProps> = ({ outputs }) => (
     </Tooltip>
 );
 
+const getDisplayType = (param: AbiParameter): string => {
+
+    const internalType = (param as AbiParameter & { internalType?: string }).internalType;
+
+    if (param.type === "tuple" || param.type === "tuple[]") {
+
+        const structName = getStructName(internalType?.replace("[]", ""));
+
+        if (structName) {
+
+            return param.type === "tuple[]" ? `${structName}[]` : structName;
+        }
+    }
+
+    return param.type;
+};
+
 export const FunctionSignature: React.FC<FunctionSignatureProps> = ({ func }) => (
     <Typography component="span">
         {func.name}(
         {func.inputs.map((input, idx) => (
             <span key={idx}>
                 {idx > 0 && ", "}
-                <Typography component="span" color="info">{input.type}</Typography>
+                <Typography component="span" color="info">{getDisplayType(input)}</Typography>
                 {input.name && ` ${input.name}`}
             </span>
         ))}

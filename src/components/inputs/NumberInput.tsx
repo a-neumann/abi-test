@@ -72,7 +72,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
                 }}
                 sx={{ flex: 1 }}
             />
-            <InputModeMenu inputMode={inputMode} onModeChange={onModeChange} hasHelperText />
+            <InputModeMenu inputMode={inputMode} onModeChange={onModeChange} hasHelperText={error !== null} />
         </Box>
     );
 };

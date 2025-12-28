@@ -163,3 +163,20 @@ export function resolveContractAddress(
 
     return address[chainId];
 }
+
+export function getDefaultValue(type: string): unknown {
+
+    if (type === "bool") return false;
+
+    if (type.startsWith("uint") || type.startsWith("int")) return "0";
+
+    if (type === "address") return "0x0000000000000000000000000000000000000000";
+
+    if (type.endsWith("[]")) return [];
+
+    if (type === "tuple") return {};
+
+    if (type === "bytes" || type.match(/^bytes\d+$/)) return "0x";
+
+    return "";
+}

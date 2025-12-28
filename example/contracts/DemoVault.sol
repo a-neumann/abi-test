@@ -189,6 +189,35 @@ contract DemoVault is VaultBase, IVault {
         emit UserWhitelisted(user, whitelisted);
     }
 
+    function batchWhitelistUsers(address[] calldata users, bool whitelisted) external onlyAdmin {
+        for (uint256 i = 0; i < users.length; i++) {
+            userInfo[users[i]].isWhitelisted = whitelisted;
+            emit UserWhitelisted(users[i], whitelisted);
+        }
+    }
+
+    struct UserUpdate {
+        address user;
+        uint256 rewardDebt;
+        bool isWhitelisted;
+    }
+
+    function updateUser(UserUpdate calldata update) external onlyAdmin {
+        UserInfo storage info = userInfo[update.user];
+        info.rewardDebt = update.rewardDebt;
+        info.isWhitelisted = update.isWhitelisted;
+        emit UserWhitelisted(update.user, update.isWhitelisted);
+    }
+
+    function batchUpdateUsers(UserUpdate[] calldata updates) external onlyAdmin {
+        for (uint256 i = 0; i < updates.length; i++) {
+            UserInfo storage info = userInfo[updates[i].user];
+            info.rewardDebt = updates[i].rewardDebt;
+            info.isWhitelisted = updates[i].isWhitelisted;
+            emit UserWhitelisted(updates[i].user, updates[i].isWhitelisted);
+        }
+    }
+
     function setWithdrawalFee(uint256 newFeeBps) external onlyAdmin {
         require(newFeeBps <= MAX_FEE_BPS, "Fee too high");
 

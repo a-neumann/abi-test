@@ -95,12 +95,12 @@ export const AbiInput: React.FC<AbiInputProps> = ({ param, value, onChange, enum
 
     if (type.endsWith("[]")) {
 
-        return <ArrayInput name={name} type={type} value={value} onChange={onChange} />;
+        return <ArrayInput param={param} value={value} onChange={onChange} enums={enums} />;
     }
 
     if (type === "tuple") {
 
-        return <TupleInput name={name} value={value} onChange={onChange} />;
+        return <TupleInput param={param} value={value} onChange={onChange} enums={enums} />;
     }
 
     return <DefaultInput name={name} type={type} value={value} onChange={onChange} />;

@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import { ChevronDown, ChevronRight } from "lucide-react";
+import { stringify } from "viem";
 import type { Log } from "viem";
 
 interface LogsViewProps {
@@ -46,9 +47,7 @@ export const LogsView: React.FC<LogsViewProps> = ({ logs }) => {
                         overflow="auto"
                         marginTop={0.5}
                     >
-                        {JSON.stringify(log, (_, v) =>
-                            typeof v === "bigint" ? v.toString() : v, 2
-                        )}
+                        {stringify(log, null, 2)}
                     </Box>
                 ))}
             </Collapse>
