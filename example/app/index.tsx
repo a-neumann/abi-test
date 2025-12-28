@@ -27,6 +27,9 @@ const contracts: ResolvedContractConfig[] = [
         name: "DemoVault",
         abi: demoVaultAbi,
         address: DemoVaultAddresses,
+        enums: {
+            VaultStatus: ["Active", "Paused", "Closed"],
+        },
     },
 ];
 
