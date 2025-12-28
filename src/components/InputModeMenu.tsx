@@ -49,7 +49,7 @@ export const InputModeMenu: React.FC<InputModeMenuProps> = ({ inputMode, onModeC
                     }}
                     selected={inputMode === "datetime"}
                 >
-                    Date/Time
+                    Timestamp (UTC)
                 </MenuItem>
             </Menu>
         </>

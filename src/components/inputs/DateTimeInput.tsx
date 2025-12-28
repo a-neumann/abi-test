@@ -18,7 +18,7 @@ function getDateAndTimeFromTimestamp(timestamp: string): [dateValue: string, tim
     if (Number.isNaN(date.getTime())) return ["", ""];
 
     const dateStr = date.toISOString().split("T")[0];
-    const timeStr = date.toTimeString().slice(0, 5);
+    const timeStr = date.toISOString().split("T")[1].slice(0, 5);
 
     return [dateStr, timeStr];
 }
@@ -47,11 +47,11 @@ export const DateTimeInput: React.FC<DateTimeInputProps> = ({
 
         if (newDate && newTime) {
 
-            const combined = new Date(`${newDate}T${newTime}`);
+            const combined = new Date(`${newDate}T${newTime}Z`);
             onChange(Math.floor(combined.getTime() / 1000).toString());
         } else if (newDate) {
 
-            const combined = new Date(`${newDate}T00:00`);
+            const combined = new Date(`${newDate}T00:00Z`);
             onChange(Math.floor(combined.getTime() / 1000).toString());
         } else {
 
