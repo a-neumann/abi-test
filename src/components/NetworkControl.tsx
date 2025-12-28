@@ -3,13 +3,21 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Popover from "@mui/material/Popover";
-import Autocomplete from "@mui/material/Autocomplete";
+import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-import { ChevronDown, Network } from "lucide-react";
+import { ChevronDown, Network, TriangleAlert } from "lucide-react";
 import type { Chain } from "viem";
 
-export const NetworkControl: React.FC = () => {
+const filterOptions = createFilterOptions<Chain>({
+    stringify: chain => `${chain.name} ${chain.id}`,
+});
+
+interface NetworkControlProps {
+    targetChainId?: number;
+}
+
+export const NetworkControl: React.FC<NetworkControlProps> = ({ targetChainId }) => {
 
     const { isConnected } = useConnection();
     const chains = useChains();
@@ -19,6 +27,7 @@ export const NetworkControl: React.FC = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
     const currentChain = chains.find(c => c.id === currentChainId);
+    const targetChain = targetChainId ? chains.find(c => c.id === targetChainId) : undefined;
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
 
@@ -48,8 +57,13 @@ export const NetworkControl: React.FC = () => {
         <>
             <Button
                 onClick={handleClick}
-                startIcon={<Network size={18} />}
+                startIcon={
+                    (targetChainId && currentChainId !== targetChainId) ?
+                        <TriangleAlert size={18} /> :
+                        <Network size={18} />
+                }
                 endIcon={<ChevronDown size={16} />}
+                color={targetChainId && currentChainId !== targetChainId ? "warning" : "inherit"}
             >
                 <Typography variant="body2" fontWeight={500}>
                     {currentChain?.name || "Unknown"}
@@ -71,25 +85,43 @@ export const NetworkControl: React.FC = () => {
                 <Typography variant="subtitle2" sx={{ mb: 1.5 }}>
                     Switch Network
                 </Typography>
+                {targetChain && currentChainId !== targetChainId && (
+                    <Button
+                        variant="outlined"
+                        fullWidth
+                        onClick={() => {
+
+                            switchChain({ chainId: targetChain.id });
+                            handleClose();
+                        }}
+                        sx={{ marginBottom: 1.5 }}
+                    >
+                        Switch to {targetChain.name}
+                    </Button>
+                )}
                 <Autocomplete
                     options={chains}
                     getOptionLabel={chain => chain.name}
+                    filterOptions={filterOptions}
                     value={currentChain || null}
                     onChange={handleChainSelect}
                     isOptionEqualToValue={(option, value) => option.id === value.id}
                     renderInput={params => (
                         <TextField
                             {...params}
-                            placeholder="Search networks..."
+                            placeholder="Search by name or chain ID..."
                             size="small"
                             autoFocus
                         />
                     )}
                     renderOption={(props, chain) => (
                         <Box component="li" {...props} key={chain.id}>
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <Box sx={{ display: "flex", alignItems: "center", gap: 1, width: "100%" }}>
                                 <Network size={16} />
                                 <Typography variant="body2">{chain.name}</Typography>
+                                <Typography variant="caption" color="text.secondary">
+                                    ({chain.id})
+                                </Typography>
                                 {chain.id === currentChainId && (
                                     <Typography variant="caption" color="primary" sx={{ ml: "auto" }}>
                                         Connected

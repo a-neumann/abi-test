@@ -39,6 +39,7 @@ export default [
                 { blankLine: "always", prev: "*", next: ["return"] },
             ],
             "@stylistic/max-len": ["error", { code: 160 }],
+            "@stylistic/indent": ["error", 4, { flatTernaryExpressions: true }],
             "max-depth": ["error", 4],
             "@typescript-eslint/no-explicit-any": "warn",
             "@typescript-eslint/no-non-null-assertion": "warn",

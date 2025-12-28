@@ -83,7 +83,8 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
 
             setTransactions(prev =>
                 prev.map(tx =>
-                    tx.hash === hash ? { ...tx, status: "confirmed", logs: receipt.logs } :
+                    tx.hash === hash ?
+                        { ...tx, status: "confirmed", logs: receipt.logs } :
                         tx
                 )
             );
@@ -186,8 +187,8 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
                     >
                         {
                             isPending ? "Confirm in wallet..." :
-                                isConfirming ? "Confirming..." :
-                                    "Write"
+                            isConfirming ? "Confirming..." :
+                            "Write"
                         }
                     </Button>
                     {(error || parseError) && (

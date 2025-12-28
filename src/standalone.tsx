@@ -74,6 +74,7 @@ if (root) {
                     <AbiTest
                         contracts={abiTestConfig.contracts}
                         blockExplorerUrl={abiTestConfig.blockExplorerUrl}
+                        chainId={abiTestConfig.chainId}
                     />
                 </ThemeProvider>
             </QueryClientProvider>

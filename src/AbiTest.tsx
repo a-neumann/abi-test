@@ -50,7 +50,7 @@ const AbiTest: React.FC<AbiTestProps> = ({ contracts, blockExplorerUrl, chainId 
                             ABI test dashboard
                         </Typography>
                         <Box display="flex" alignItems="center" gap={1}>
-                            <NetworkControl />
+                            <NetworkControl targetChainId={chainId} />
                             <WalletControl />
                         </Box>
                     </Box>

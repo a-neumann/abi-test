@@ -232,8 +232,8 @@ async function main() {
 
     // Resolve config file path
     const configPath = args.configPath ?
-            resolve(process.cwd(), args.configPath) :
-            findConfigFile();
+        resolve(process.cwd(), args.configPath) :
+        findConfigFile();
 
     let config: AbiTestConfig | undefined;
     let configDir = process.cwd();
