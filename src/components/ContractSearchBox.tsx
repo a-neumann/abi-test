@@ -101,7 +101,7 @@ const ResultsList: React.FC<ResultsListProps> = ({
                 zIndex: 10,
                 maxHeight: 300,
                 overflow: "auto",
-                mt: 0.5,
+                marginTop: 0.5,
             }}
         >
             <List dense>
@@ -241,7 +241,14 @@ export const ContractSearchBox: React.FC<ContractSearchBoxProps> = ({ contracts 
 
     return (
         <>
-            <Box ref={searchBarRef} sx={{ position: "relative", mb: 3, display: "flex", gap: 1, alignItems: "center" }}>
+            <Box
+                ref={searchBarRef}
+                position="relative"
+                marginBottom={3}
+                display="flex"
+                gap={1}
+                alignItems="center"
+            >
                 <SearchField
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
@@ -299,7 +306,7 @@ export const ContractSearchBox: React.FC<ContractSearchBoxProps> = ({ contracts 
                 }}
             >
                 <DialogContent sx={{ overflow: "visible" }}>
-                    <Box sx={{ position: "relative" }}>
+                    <Box position="relative">
                         <SearchField
                             searchQuery={searchQuery}
                             setSearchQuery={setSearchQuery}

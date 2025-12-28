@@ -44,8 +44,13 @@ const AbiTest: React.FC<AbiTestProps> = ({ contracts, blockExplorerUrl, chainId 
     return (
         <ContractsContext.Provider value={{ contracts, blockExplorerUrl: blockExplorerUrl?.replace(/\/+$/, "") }}>
             <AccordionContext.Provider value={accordion}>
-                <Container maxWidth="lg" sx={{ py: 4 }}>
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 3 }}>
+                <Container maxWidth="lg" sx={{ paddingY: 4 }}>
+                    <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        marginBottom={3}
+                    >
                         <Typography variant="h4">
                             ABI test dashboard
                         </Typography>
@@ -58,19 +63,19 @@ const AbiTest: React.FC<AbiTestProps> = ({ contracts, blockExplorerUrl, chainId 
                     <ContractSearchBox contracts={contracts} />
 
                     {isConnected && isMainnet && (
-                        <Alert severity="warning" sx={{ mb: 3 }}>
+                        <Alert severity="warning" sx={{ marginBottom: 3 }}>
                             You are connected to a mainnet. Be careful when sending transactions as they will use real funds.
                         </Alert>
                     )}
 
                     {isConnected && hasNoBalance && (
-                        <Alert severity="warning" sx={{ mb: 3 }}>
+                        <Alert severity="warning" sx={{ marginBottom: 3 }}>
                             You have no ETH on this chain. You won't be able to send transactions.
                         </Alert>
                     )}
 
                     {isConnected && balanceError && (
-                        <Alert severity="error" sx={{ mb: 3 }}>
+                        <Alert severity="error" sx={{ marginBottom: 3 }}>
                             Could not contact chain. Please check that the RPC endpoint is reachable.
                         </Alert>
                     )}

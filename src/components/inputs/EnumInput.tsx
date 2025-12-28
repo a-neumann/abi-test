@@ -16,7 +16,7 @@ interface EnumInputProps {
 export const EnumInput: React.FC<EnumInputProps> = ({ name, enumName, options, value, onChange }) => {
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <Box display="flex" alignItems="flex-start">
             <FormControl fullWidth size="small">
                 <InputLabel>{`${name} (${enumName})`}</InputLabel>
                 <Select

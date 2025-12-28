@@ -20,7 +20,7 @@ export const InputModeMenu: React.FC<InputModeMenuProps> = ({ inputMode, onModeC
             <IconButton
                 size="small"
                 onClick={e => setAnchorEl(e.currentTarget)}
-                sx={{ ml: 1, mb: hasHelperText ? 4 : 1, alignSelf: "flex-end" }}
+                sx={{ marginLeft: 1, marginBottom: hasHelperText ? 4 : 1, alignSelf: "flex-end" }}
             >
                 <MoreVertical size={18} />
             </IconButton>

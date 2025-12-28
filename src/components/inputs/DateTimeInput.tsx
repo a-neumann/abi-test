@@ -60,12 +60,12 @@ export const DateTimeInput: React.FC<DateTimeInputProps> = ({
     };
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 1, flex: 1 }}>
+        <Box display="flex" alignItems="flex-start">
+            <Box display="flex" flexDirection="column" gap={1} flex={1}>
                 <Typography variant="caption" color="text.secondary">
                     {name} ({type})
                 </Typography>
-                <Box sx={{ display: "flex", gap: 2 }}>
+                <Box display="flex" gap={2}>
                     <TextField
                         size="small"
                         type="date"

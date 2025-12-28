@@ -13,7 +13,7 @@ interface BoolInputProps {
 export const BoolInput: React.FC<BoolInputProps> = ({ name, type, value, onChange }) => {
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <Box display="flex" alignItems="flex-start">
             <FormControlLabel
                 control={(
                     <Switch

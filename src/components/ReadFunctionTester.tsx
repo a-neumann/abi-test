@@ -125,13 +125,7 @@ export const ReadFunctionTester: React.FC<ReadFunctionTesterProps> = ({
             elevation={2}
         >
             <AccordionSummary expandIcon={<ChevronDown />}>
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                    }}
-                >
+                <Box display="flex" alignItems="center" gap={1}>
                     <Chip
                         label={func.stateMutability}
                         size="small"
@@ -142,7 +136,7 @@ export const ReadFunctionTester: React.FC<ReadFunctionTesterProps> = ({
                 </Box>
             </AccordionSummary>
             <AccordionDetails>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box display="flex" flexDirection="column" gap={2}>
                     {func.inputs.map((input, idx) => {
 
                         const key = input.name || `arg${idx}`;

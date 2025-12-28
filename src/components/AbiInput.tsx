@@ -48,7 +48,7 @@ export const AbiInput: React.FC<AbiInputProps> = ({ param, value, onChange, enum
     if (type === "address") {
 
         return (
-            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+            <Box display="flex" alignItems="flex-start">
                 <AddressInput name={name} value={value} onChange={onChange} />
                 <Spacer />
             </Box>

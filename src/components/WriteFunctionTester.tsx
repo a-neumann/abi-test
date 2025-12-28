@@ -141,13 +141,7 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
             elevation={2}
         >
             <AccordionSummary expandIcon={<ChevronDown />}>
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 1,
-                    }}
-                >
+                <Box display="flex" alignItems="center" gap={1}>
                     {func.stateMutability === "payable" && (
                         <Chip
                             label="payable"
@@ -160,7 +154,7 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
                 </Box>
             </AccordionSummary>
             <AccordionDetails>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box display="flex" flexDirection="column" gap={2}>
                     {func.inputs.map((input, idx) => {
 
                         const key = input.name || `arg${idx}`;
@@ -205,7 +199,7 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
                             <Typography variant="body2" fontWeight="bold">
                                 {tx.status === "pending" ? "Pending..." : tx.status === "failed" ? "Failed" : "Confirmed"}
                             </Typography>
-                            <Typography variant="body2" sx={{ mt: 0.5 }}>
+                            <Typography variant="body2" marginTop={0.5}>
                                 Hash:{" "}
                                 {blockExplorerUrl ? (
                                     <Link
@@ -225,7 +219,7 @@ export const WriteFunctionTester: React.FC<WriteFunctionTesterProps> = ({
                         </Alert>
                     ))}
                     {(transactions.length > visibleCount || transactions.length > 0) && (
-                        <Box sx={{ display: "flex", gap: 2, alignItems: "center", justifyContent: "space-between" }}>
+                        <Box display="flex" gap={2} alignItems="center" justifyContent="space-between">
                             {transactions.length > visibleCount ? (
                                 <Button
                                     variant="text"

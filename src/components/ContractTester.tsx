@@ -62,13 +62,13 @@ export const ContractTester: React.FC<ContractTesterProps> = memo(({ contract, e
             key={contract.name}
             expanded={expanded}
             onChange={() => toggleExpansion(getContractId(contract.name))}
-            sx={{ mb: 2 }}
+            sx={{ marginBottom: 2 }}
         >
             <AccordionSummary expandIcon={<ChevronDown />}>
                 <Typography variant="h6">{contract.name}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box display="flex" flexDirection="column" gap={2}>
                     <Typography variant="body2" color="text.secondary">
                         Address:{" "}
                         {blockExplorerUrl ? (
@@ -86,7 +86,7 @@ export const ContractTester: React.FC<ContractTesterProps> = memo(({ contract, e
 
                     {viewFunctions.length > 0 && (
                         <>
-                            <Typography variant="h6" sx={{ mt: 2 }}>
+                            <Typography variant="h6" marginTop={2}>
                                 Read Functions
                             </Typography>
                             {viewFunctions.map(func => (

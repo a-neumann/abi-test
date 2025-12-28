@@ -12,7 +12,7 @@ interface StringInputProps {
 export const StringInput: React.FC<StringInputProps> = ({ name, type, value, onChange }) => {
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <Box display="flex" alignItems="flex-start">
             <TextField
                 fullWidth
                 size="small"

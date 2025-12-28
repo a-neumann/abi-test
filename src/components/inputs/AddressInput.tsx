@@ -75,7 +75,7 @@ export const AddressInput: React.FC<AddressInputProps> = ({ name, value, onChang
                         <Typography component="span">
                             {formatAddress(option.address)}
                         </Typography>
-                        <Typography component="span" sx={{ ml: 1, color: "text.secondary" }}>
+                        <Typography component="span" marginLeft={1} color="text.secondary">
                             ({option.label})
                         </Typography>
                     </li>

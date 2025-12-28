@@ -50,7 +50,7 @@ export const NumberInput: React.FC<NumberInputProps> = ({
     const error = validateNumber(value, type);
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <Box display="flex" alignItems="flex-start">
             <NumericFormat
                 thousandSeparator={thousandsSeparator}
                 decimalSeparator={decimalSeparator}

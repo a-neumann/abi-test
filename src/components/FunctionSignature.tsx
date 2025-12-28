@@ -32,7 +32,7 @@ const OutputType: React.FC<OutputTypeProps> = ({ output }) => {
         return (
             <Tooltip
                 title={(
-                    <Box component="pre" sx={{ m: 0, whiteSpace: "pre-wrap" }}>
+                    <Box component="pre" margin={0} whiteSpace="pre-wrap">
                         {formatAbiParams(components, { includeName: true }).split(", ").join("\n")}
                     </Box>
                 )}
@@ -40,7 +40,8 @@ const OutputType: React.FC<OutputTypeProps> = ({ output }) => {
             >
                 <Box
                     component="span"
-                    sx={{ color: "secondary.main", cursor: "help", textDecoration: "underline dotted" }}
+                    color="secondary.main"
+                    sx={{ cursor: "help", textDecoration: "underline dotted" }}
                 >
                     {displayType}
                 </Box>
@@ -49,7 +50,7 @@ const OutputType: React.FC<OutputTypeProps> = ({ output }) => {
     }
 
     return (
-        <Box component="span" sx={{ color: "secondary.main" }}>
+        <Box component="span" color="secondary.main">
             {displayType}
         </Box>
     );
@@ -62,7 +63,7 @@ interface MultipleOutputsProps {
 const MultipleOutputs: React.FC<MultipleOutputsProps> = ({ outputs }) => (
     <Tooltip
         title={(
-            <Box component="pre" sx={{ m: 0, whiteSpace: "pre-wrap" }}>
+            <Box component="pre" margin={0} whiteSpace="pre-wrap">
                 {formatAbiParams(outputs, { includeName: true }).split(", ").join("\n")}
             </Box>
         )}
@@ -70,7 +71,8 @@ const MultipleOutputs: React.FC<MultipleOutputsProps> = ({ outputs }) => (
     >
         <Box
             component="span"
-            sx={{ color: "secondary.main", cursor: "help", textDecoration: "underline dotted" }}
+            color="secondary.main"
+            sx={{ cursor: "help", textDecoration: "underline dotted" }}
         >
             {"{...}"}
         </Box>

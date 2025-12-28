@@ -12,7 +12,7 @@ interface DefaultInputProps {
 export const DefaultInput: React.FC<DefaultInputProps> = ({ name, type, value, onChange }) => {
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <Box display="flex" alignItems="flex-start">
             <TextField
                 fullWidth
                 size="small"

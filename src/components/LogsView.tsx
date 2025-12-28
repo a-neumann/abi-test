@@ -17,7 +17,7 @@ export const LogsView: React.FC<LogsViewProps> = ({ logs }) => {
     if (logs.length === 0) return null;
 
     return (
-        <Box sx={{ mt: 1 }}>
+        <Box marginTop={1}>
             <Box
                 sx={{
                     display: "flex",
@@ -27,7 +27,7 @@ export const LogsView: React.FC<LogsViewProps> = ({ logs }) => {
                 }}
                 onClick={() => setExpanded(prev => !prev)}
             >
-                <IconButton size="small" sx={{ p: 0, mr: 0.5 }}>
+                <IconButton size="small" sx={{ padding: 0, marginRight: 0.5 }}>
                     {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
                 </IconButton>
                 <Typography variant="body2" fontWeight="bold">
@@ -39,14 +39,12 @@ export const LogsView: React.FC<LogsViewProps> = ({ logs }) => {
                     <Box
                         key={idx}
                         component="pre"
-                        sx={{
-                            fontSize: "0.75rem",
-                            bgcolor: "grey.100",
-                            p: 1,
-                            borderRadius: 1,
-                            overflow: "auto",
-                            mt: 0.5,
-                        }}
+                        fontSize="0.75rem"
+                        bgcolor="grey.100"
+                        padding={1}
+                        borderRadius={1}
+                        overflow="auto"
+                        marginTop={0.5}
                     >
                         {JSON.stringify(log, (_, v) =>
                             typeof v === "bigint" ? v.toString() : v, 2

@@ -82,7 +82,7 @@ export const NetworkControl: React.FC<NetworkControlProps> = ({ targetChainId })
                     },
                 }}
             >
-                <Typography variant="subtitle2" sx={{ mb: 1.5 }}>
+                <Typography variant="subtitle2" marginBottom={1.5}>
                     Switch Network
                 </Typography>
                 {targetChain && currentChainId !== targetChainId && (
@@ -116,14 +116,14 @@ export const NetworkControl: React.FC<NetworkControlProps> = ({ targetChainId })
                     )}
                     renderOption={(props, chain) => (
                         <Box component="li" {...props} key={chain.id}>
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 1, width: "100%" }}>
+                            <Box display="flex" alignItems="center" gap={1} width="100%">
                                 <Network size={16} />
                                 <Typography variant="body2">{chain.name}</Typography>
                                 <Typography variant="caption" color="text.secondary">
                                     ({chain.id})
                                 </Typography>
                                 {chain.id === currentChainId && (
-                                    <Typography variant="caption" color="primary" sx={{ ml: "auto" }}>
+                                    <Typography variant="caption" color="primary" marginLeft="auto">
                                         Connected
                                     </Typography>
                                 )}

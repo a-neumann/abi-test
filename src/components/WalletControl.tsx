@@ -124,7 +124,7 @@ export const WalletControl: React.FC<WalletControlProps> = ({ showBalance = true
 
     return (
         <>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Box display="flex" alignItems="center" gap={1}>
                 {/* Wallet button */}
                 <Tooltip title={address || ""} arrow>
                     <Button
@@ -137,13 +137,21 @@ export const WalletControl: React.FC<WalletControlProps> = ({ showBalance = true
                                 sx={{
                                     width: 24,
                                     height: 24,
-                                    mr: 1,
+                                    marginRight: 1,
                                     border: "1px solid",
                                     borderColor: "divider",
                                 }}
                             />
                         ) : (
-                            <Box sx={{ width: 24, height: 24, mr: 1, borderRadius: "50%", overflow: "hidden", border: "1px solid", borderColor: "divider" }}>
+                            <Box
+                                width={24}
+                                height={24}
+                                marginRight={1}
+                                borderRadius="50%"
+                                overflow="hidden"
+                                border="1px solid"
+                                borderColor="divider"
+                            >
                                 <Blockies address={address || ""} size={8} scale={3} />
                             </Box>
                         )}
@@ -168,8 +176,8 @@ export const WalletControl: React.FC<WalletControlProps> = ({ showBalance = true
                 }}
             >
                 {/* Address and avatar header */}
-                <Box sx={{ px: 2, py: 1.5 }}>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
+                <Box paddingX={2} paddingY={1.5}>
+                    <Box display="flex" alignItems="center" gap={1.5} marginBottom={1}>
                         {ensAvatar ? (
                             <Avatar
                                 src={ensAvatar}
@@ -181,7 +189,7 @@ export const WalletControl: React.FC<WalletControlProps> = ({ showBalance = true
                                 }}
                             />
                         ) : (
-                            <Box sx={{ width: 40, height: 40, borderRadius: "50%", overflow: "hidden", border: "2px solid", borderColor: "divider" }}>
+                            <Box width={40} height={40} borderRadius="50%" overflow="hidden" border="2px solid" borderColor="divider">
                                 <Blockies address={address || ""} size={8} scale={5} />
                             </Box>
                         )}

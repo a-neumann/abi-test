@@ -40,7 +40,7 @@ export const BytesInput: React.FC<BytesInputProps> = ({ name, type, value, onCha
     const error = validateBytes(value, type);
 
     return (
-        <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+        <Box display="flex" alignItems="flex-start">
             <TextField
                 fullWidth
                 size="small"
