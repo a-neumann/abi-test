@@ -1,4 +1,4 @@
-import erc20Abi from "./erc20.json";
+import { erc20Abi } from "viem";
 
 const config = {
     contracts: [
