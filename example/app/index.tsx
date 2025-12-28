@@ -4,14 +4,17 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createConfig, http, WagmiProvider } from "wagmi";
+import { injected } from "wagmi/connectors";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { foundry } from "viem/chains";
 import { AbiTest, type ResolvedContractConfig } from "abi-test";
 import { mockUsdAbi, demoVaultAbi } from "./abis";
 import { MockUSDAddresses, DemoVaultAddresses } from "./addresses";
+import { Home } from "./Home";
 
 const config = createConfig({
     chains: [foundry],
+    connectors: [injected()],
     transports: {
         [foundry.id]: http(),
     },
@@ -57,7 +60,7 @@ createRoot(document.body).render(
                     <CssBaseline />
                     <HashRouter>
                         <Routes>
-                            <Route path="/" element={<h1>TODO</h1>} />
+                            <Route path="/" element={<Home />} />
                             <Route path="/dev" element={<AbiTest chainId={foundry.id} contracts={contracts} />} />
                         </Routes>
                     </HashRouter>
