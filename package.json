@@ -1,6 +1,6 @@
 {
   "name": "abi-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Interactive UI testing tool for local development of Ethereum smart contracts",
   "license": "ISC",
   "author": "",
