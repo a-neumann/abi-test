@@ -1,6 +1,20 @@
 # abi-test
 
-Interactive ABI testing tool for Ethereum smart contracts. Test contract functions through a user-friendly UI without writing code.
+Interactive ABI testing tool for local development of Ethereum smart contracts. Test contract functions through a user-friendly UI without writing code.
+
+It's like Swagger UI, but for Solidity.
+
+![screenshot](screenshot.png)
+
+## Features
+
+- **Permissionless and free**: Runs locally with Anvil or Hardhat without any Subscription or API key.
+- **Lean and fast UX**: Search contracts and functions and prepare calls within seconds.
+- **Smart Input Detection**: Automatically provides appropriate input components based on parameter types (bool, address, uint, bytes, arrays, tuples). Easy timestamp handling with custom datetime picker.
+- **Enum Support**: Define enum mappings for better UX on enum parameters
+- **Transaction Tracking**: View pending/confirmed transactions with logs and receipts
+- **Multi-chain Support**: Configure per-chain addresses and automatic chain switching
+- **Block Explorer Integration**: Clickable links to addresses and transactions
 
 ## Quick Start
 
@@ -10,7 +24,7 @@ The fastest way to get started is using npx:
 npx abi-test --chain-id 1 -c 0x1234...abcd:MyToken -k YOUR_ETHERSCAN_API_KEY
 ```
 
-This spawns a local web UI where you can interact with your contracts immediately.
+This spawns a local web UI where you can interact with your contracts immediately. `-c` for contact can be used multiple times like `-c {address}:{name} -c ...`
 
 ## Installation
 
@@ -49,7 +63,7 @@ const config: AbiTestConfig = {
         {
             name: "MyToken",
             address: "0x1234...abcd",
-            // ABI can be inline, a file path, or file generated with the Wagmi CLI
+            // ABI can be inline, a file path, or a file import, generated with the Wagmi CLI
             abi: [/* ... */],
             enums: {
                 Status: ["Pending", "Active", "Closed"]
@@ -74,6 +88,8 @@ You can embed the `AbiTest` component directly into your React application. This
 - **Build internal tools**: Create admin dashboards or developer tools where contract interaction is just one part of the interface
 
 #### Peer Dependencies for embedding as a component
+
+You will need [Material UI](https://mui.com/material-ui/getting-started/installation/) and it's dependencies to be installed.
 
 Ensure you have these peer dependencies installed:
 
@@ -143,16 +159,6 @@ interface ResolvedContractConfig {
     enums?: Record<string, string[]>;  // Map enum names to values
 }
 ```
-
-## Features
-
-- **Smart Input Detection**: Automatically provides appropriate input components based on parameter types (bool, address, uint, bytes, arrays, tuples)
-- **Timestamp Handling**: Parameters with names containing "time", "timestamp", or "date" get a datetime picker
-- **Enum Support**: Define enum mappings for better UX on enum parameters
-- **Multi-chain Support**: Configure per-chain addresses and automatic chain switching
-- **Transaction Tracking**: View pending/confirmed transactions with logs and receipts
-- **Block Explorer Integration**: Clickable links to addresses and transactions
-- **Read/Write Separation**: Clear distinction between view functions and state-changing transactions
 
 ## Development
 
