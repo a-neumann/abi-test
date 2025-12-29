@@ -41,7 +41,7 @@ export const LogsView: React.FC<LogsViewProps> = ({ logs }) => {
                         key={idx}
                         component="pre"
                         fontSize="0.75rem"
-                        bgcolor="grey.100"
+                        bgcolor="background.default"
                         padding={1}
                         borderRadius={1}
                         overflow="auto"

@@ -102,6 +102,13 @@ export const themeOptions: ThemeOptions = {
                 },
             },
         },
+        MuiInputBase: {
+            styleOverrides: {
+                multiline: ({ theme }) => ({
+                    minHeight: theme.spacing(5),
+                }),
+            },
+        },
     },
 };
 
