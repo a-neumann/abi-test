@@ -23,6 +23,9 @@ const libBuildConfig = {
             "wagmi",
             "viem",
             "@tanstack/react-query",
+            "@emotion/react",
+            "@emotion/styled",
+            "@mui/material",
         ],
         output: {
             globals: {
