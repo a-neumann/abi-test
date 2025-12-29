@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
+import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
 import { Spacer } from "./Spacer";
 
 interface BoolInputProps {
@@ -16,7 +16,7 @@ export const BoolInput: React.FC<BoolInputProps> = ({ name, type, value, onChang
         <Box display="flex" alignItems="flex-start">
             <FormControlLabel
                 control={(
-                    <Switch
+                    <Checkbox
                         checked={value === "true"}
                         onChange={e => onChange(e.target.checked ? "true" : "false")}
                     />

@@ -140,7 +140,7 @@ export const ArrayInput: React.FC<ArrayInputProps> = ({ param, value, onChange, 
             return parseInputValue(item, itemParam);
         });
 
-        onChange(stringify(result));
+        onChange(stringify(result, null, 4));
         setDialogOpen(false);
     };
 
@@ -164,6 +164,11 @@ export const ArrayInput: React.FC<ArrayInputProps> = ({ param, value, onChange, 
                 error={error !== null}
                 helperText={error ?? "Enter as JSON array"}
                 multiline
+                slotProps={{
+                    input: {
+                        sx: t => t.typography.code,
+                    },
+                }}
             />
             <Spacer />
 

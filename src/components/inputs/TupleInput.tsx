@@ -120,7 +120,7 @@ export const TupleInput: React.FC<TupleInputProps> = ({ param, value, onChange, 
             }
         });
 
-        onChange(stringify(result));
+        onChange(stringify(result, null, 4));
         setDialogOpen(false);
     };
 
@@ -146,6 +146,11 @@ export const TupleInput: React.FC<TupleInputProps> = ({ param, value, onChange, 
                 error={error !== null}
                 helperText={error ?? "Enter as JSON object"}
                 multiline
+                slotProps={{
+                    input: {
+                        sx: t => t.typography.code,
+                    },
+                }}
             />
             <Spacer />
 

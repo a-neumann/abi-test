@@ -1,5 +1,20 @@
 import { ThemeOptions } from "@mui/material/styles";
 
+declare module "@mui/material/styles" {
+    interface TypographyVariants {
+        code: React.CSSProperties;
+    }
+    interface TypographyVariantsOptions {
+        code?: React.CSSProperties;
+    }
+}
+
+declare module "@mui/material/Typography" {
+    interface TypographyPropsVariantOverrides {
+        code: true;
+    }
+}
+
 export const themeOptions: ThemeOptions = {
     palette: {
         mode: "dark",
@@ -23,6 +38,11 @@ export const themeOptions: ThemeOptions = {
         fontSize: 16,
         allVariants: {
             letterSpacing: "0.08em",
+        },
+        code: {
+            fontFamily: "monospace",
+            fontSize: "0.8em",
+            letterSpacing: 0,
         },
     },
     shape: {

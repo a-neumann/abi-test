@@ -172,13 +172,12 @@ export const ReadFunctionTester: React.FC<ReadFunctionTesterProps> = ({
                             </Typography>
                             <Typography
                                 component="pre"
-                                sx={{
-                                    fontFamily: "monospace",
-                                    fontSize: "0.85rem",
+                                sx={t => ({
+                                    ...t.typography.code,
                                     whiteSpace: "pre-wrap",
                                     wordBreak: "break-word",
                                     m: 0,
-                                }}
+                                })}
                             >
                                 {renderResultWithLinks(formatResult(data), blockExplorerUrl)}
                             </Typography>
