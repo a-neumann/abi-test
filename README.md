@@ -1,6 +1,6 @@
 # abi-test
 
-Interactive ABI testing tool for local development of Ethereum smart contracts. Test contract functions through a user-friendly UI without writing code.
+Interactive UI testing tool for local development of Ethereum smart contracts. Test contract functions through a user-friendly interface without writing code.
 
 It's like Swagger UI, but for Solidity.
 
